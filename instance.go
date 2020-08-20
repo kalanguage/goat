@@ -8,7 +8,7 @@ import (
 	. "github.com/omm-lang/omm/lang/types"
 )
 
-//export NewInstance
+//Create a new instance of oat given a map[string][]types.Action
 func NewInstance(oat map[string][]Action) *Instance {
 	var ins Instance
 	__dirname, _ := os.Getwd()
