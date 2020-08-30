@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	oatenc "github.com/omm-lang/omm/oat/encoding"
+	oatenc "github.com/omm-lang/oat/format/encoding"
 
 	"github.com/omm-lang/omm/lang/interpreter"
 	"github.com/omm-lang/omm/lang/types"
