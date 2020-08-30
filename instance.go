@@ -5,13 +5,13 @@ import (
 
 	"github.com/omm-lang/omm/lang/interpreter"
 
-	. "github.com/omm-lang/omm/lang/types"
+	"github.com/omm-lang/omm/lang/types"
 )
 
-//Create a new instance of oat given a map[string][]types.Action
-func NewInstance(oat map[string][]Action) *Instance {
-	var ins Instance
-	__dirname, _ := os.Getwd()
-	interpreter.FillIns(&ins, oat, __dirname, os.Args)
+//NewInstance creates a new instance of oat given a map[string][]types.Action
+func NewInstance(oat map[string][]types.Action) *types.Instance {
+	var ins types.Instance
+	dirname, _ := os.Getwd()
+	interpreter.FillIns(&ins, oat, dirname, os.Args)
 	return &ins
 }
