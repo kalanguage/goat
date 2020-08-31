@@ -3,16 +3,29 @@ package goat
 import (
 	"errors"
 	"fmt"
+	"path/filepath"
 
 	oatenc "github.com/omm-lang/oat/format/encoding"
-
+	"github.com/omm-lang/omm/lang/compiler"
 	"github.com/omm-lang/omm/lang/interpreter"
 	"github.com/omm-lang/omm/lang/types"
 )
 
 //LoadLibrary decompiles an Oat file and store it in a map[string][]types.Action.
-func LoadLibrary(file string) (map[string][]types.Action, error) {
-	return oatenc.OatDecode(file, 0)
+func LoadLibrary(file string, params types.CliParams) (map[string][]types.Action, error) {
+
+	switch filepath.Ext(file) {
+	case ".omm":
+		oat, e := compiler.Compile(file, params)
+		return oat, e
+	case ".klr":
+		return nil, errors.New("Kayl is unimplemented")
+	case ".oat":
+		fallthrough
+	default:
+		return oatenc.OatDecode(file, 0)
+	}
+
 }
 
 //CallOatFunc calls a (global) functions in a given instance and returns the return value
