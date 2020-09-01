@@ -8,10 +8,15 @@ import (
 	"github.com/omm-lang/omm/lang/types"
 )
 
-//NewInstance creates a new instance of oat given a map[string][]types.Action
-func NewInstance(oat map[string][]types.Action) *types.Instance {
+func getinstance(oat map[string][]types.Action) *types.Instance {
+
+	if oat == nil {
+		return nil
+	}
+
 	var ins types.Instance
 	dirname, _ := os.Getwd()
 	interpreter.FillIns(&ins, oat, dirname, os.Args)
+
 	return &ins
 }
