@@ -8,7 +8,7 @@ import (
 	"github.com/omm-lang/omm/lang/types"
 )
 
-func getinstance(oat map[string][]types.Action) *types.Instance {
+func getinstance(oat map[string]*types.OmmType) *types.Instance {
 
 	if oat == nil {
 		return nil

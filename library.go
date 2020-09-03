@@ -11,21 +11,23 @@ import (
 	"github.com/omm-lang/omm/lang/types"
 )
 
-//LoadLibrary decompiles an Oat file and store it in a map[string][]types.Action.
+//LoadLibrary decompiles an Oat file and store it in an Omm instance
 func LoadLibrary(file string, params types.CliParams) (*types.Instance, error) {
 
-	var oat map[string][]types.Action
+	params.Name = file
+
+	var oat map[string]*types.OmmType
 	var e error
 
 	switch filepath.Ext(file) {
 	case ".omm":
-		oat, e = compiler.Compile(file, params)
+		oat, e = compiler.Compile(params)
 	case ".klr":
 		return nil, errors.New("Kayl is unimplemented")
 	case ".oat":
 		fallthrough
 	default:
-		oat, e = oatenc.OatDecode(file, 0)
+		oat, e = oatenc.OatDecode(file)
 	}
 
 	return getinstance(oat), e
