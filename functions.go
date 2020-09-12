@@ -4,8 +4,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/omm-lang/omm/lang/interpreter"
-	"github.com/omm-lang/omm/lang/types"
+	"omm/lang/interpreter"
+
+	"omm/lang/types"
 )
 
 //CallOatFunc calls a (global) functions in a given instance and returns the return value

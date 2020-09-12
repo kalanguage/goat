@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"path/filepath"
 
-	oatenc "github.com/omm-lang/oat/format/encoding"
-	"github.com/omm-lang/omm/lang/compiler"
-	"github.com/omm-lang/omm/lang/interpreter"
-	"github.com/omm-lang/omm/lang/types"
+	oatenc "oat/format/encoding"
+	"omm/lang/compiler"
+	"omm/lang/interpreter"
+	"omm/lang/types"
 )
 
 //LoadLibrary decompiles an Oat file and store it in an Omm instance
@@ -20,14 +20,12 @@ func LoadLibrary(file string, params types.CliParams) (*types.Instance, error) {
 	var e error
 
 	switch filepath.Ext(file) {
-	case ".omm":
-		oat, e = compiler.Compile(params)
 	case ".klr":
 		return nil, errors.New("Kayl is unimplemented")
 	case ".oat":
-		fallthrough
-	default:
 		oat, e = oatenc.OatDecode(file)
+	default:
+		oat, e = compiler.Compile(params)
 	}
 
 	return getinstance(oat), e

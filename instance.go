@@ -3,9 +3,9 @@ package goat
 import (
 	"os"
 
-	"github.com/omm-lang/omm/lang/interpreter"
+	"omm/lang/interpreter"
 
-	"github.com/omm-lang/omm/lang/types"
+	"omm/lang/types"
 )
 
 func getinstance(oat map[string]*types.OmmType) *types.Instance {
