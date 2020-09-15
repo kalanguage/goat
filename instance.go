@@ -3,20 +3,20 @@ package goat
 import (
 	"os"
 
-	"omm/lang/interpreter"
+	"ka/lang/interpreter"
 
-	"omm/lang/types"
+	"ka/lang/types"
 )
 
-func getinstance(oat map[string]*types.OmmType) *types.Instance {
+func getinstance(kast map[string]*types.KaType) *types.Instance {
 
-	if oat == nil {
+	if kast == nil {
 		return nil
 	}
 
 	var ins types.Instance
 	dirname, _ := os.Getwd()
-	interpreter.FillIns(&ins, oat, dirname, os.Args)
+	interpreter.FillIns(&ins, kast, dirname, os.Args)
 
 	return &ins
 }
