@@ -4,9 +4,9 @@ import (
 	"errors"
 	"fmt"
 
-	"tusk/lang/interpreter"
+	"github.com/tusklang/tusk/lang/interpreter"
 
-	"tusk/lang/types"
+	"github.com/tusklang/tusk/lang/types"
 )
 
 //CallOatFunc calls a (global) functions in a given instance and returns the return value
@@ -29,5 +29,5 @@ func CallOatFunc(instance *types.Instance, fname string, args ...*types.TuskType
 		argv.PushBack(*v)
 	}
 
-	return interpreter.Operations["function <- array"](*fn, argv, instance, []string{"at goat caller "}, 0, "goat", 0), nil
+	return interpreter.Operations["function <- array"](*fn, argv, instance, []string{"at goat caller "}, 0, "github.com/tusklang/goat", 0), nil
 }

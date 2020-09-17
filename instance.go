@@ -3,9 +3,9 @@ package goat
 import (
 	"os"
 
-	"tusk/lang/interpreter"
+	"github.com/tusklang/tusk/lang/interpreter"
 
-	"tusk/lang/types"
+	"github.com/tusklang/tusk/lang/types"
 )
 
 func getinstance(oat map[string]*types.TuskType) *types.Instance {

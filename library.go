@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"tusk/lang/compiler"
-	"tusk/lang/interpreter"
-	"tusk/lang/types"
-	kastenc "oat/format/encoding"
+	"github.com/tusklang/tusk/lang/compiler"
+	"github.com/tusklang/tusk/lang/interpreter"
+	"github.com/tusklang/tusk/lang/types"
+	kastenc "github.com/tusklang/oat/format/encoding"
 )
 
 //LoadLibrary decompiles an Oat file and store it in an Tusk instance
