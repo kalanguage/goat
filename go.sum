@@ -1,0 +1,6 @@
+github.com/tusklang/kore v0.0.0-20200917225620-ef0b24977273 h1:3GnP7R9hWc/OzqfgU8vK2doEWNZ3oy5Ow9XXeIa5SGo=
+github.com/tusklang/kore v0.0.0-20200917225620-ef0b24977273/go.mod h1:0izJiqXVZ7mhDjIX3t3l4YET3wd2CJsRV/zB61y3XXs=
+github.com/tusklang/oat v0.0.0-20200917225620-25534b9a2ae2 h1:LPm1zKRimu21ZU14rOaTbbJcZ3+oNKBECTr8k8OadPM=
+github.com/tusklang/oat v0.0.0-20200917225620-25534b9a2ae2/go.mod h1:B3tDe4hUsaFzunvtYdtopckBww5BgGlFI30WBtsIPw4=
+github.com/tusklang/tusk v0.0.0-20200917225621-b82879583b1c h1:UrJCRe9bKiFTFAC0HOunXFYNDCg9KsLje1AwBETwj60=
+github.com/tusklang/tusk v0.0.0-20200917225621-b82879583b1c/go.mod h1:3CInXUvPvb1SMi7E6KBNWW6f0I8+VjouNVaLIgVTxcg=
