@@ -11,7 +11,7 @@ import (
 
 //CallOatFunc calls a (global) functions in a given instance and returns the return value
 func CallOatFunc(instance *types.Instance, fname string, args ...*types.TuskType) (*types.TuskType, error) {
-	fnvar := instance.Fetch("$" + fname)
+	fnvar := instance.Fetch(fname)
 
 	if fnvar == nil {
 		return nil, fmt.Errorf("Could not find variable %s", fname)
