@@ -1,7 +1,6 @@
 package goat
 
 import (
-	"errors"
 	"fmt"
 
 	"github.com/tusklang/tusk/lang/interpreter"
@@ -10,17 +9,21 @@ import (
 )
 
 //CallOatFunc calls a (global) functions in a given instance and returns the return value
-func CallOatFunc(instance *types.Instance, fname string, args ...*types.TuskType) (*types.TuskType, error) {
+func CallOatFunc(instance *types.Instance, fname string, args ...*types.TuskType) (*types.TuskType, *types.TuskError) {
 	fnvar := instance.Fetch(fname)
 
 	if fnvar == nil {
-		return nil, fmt.Errorf("Could not find variable %s", fname)
+		var tmp types.TuskError
+		tmp.Err = fmt.Sprintf("Could not find variable %s", fname)
+		return nil, &tmp
 	}
 
 	fn := fnvar.Value
 
 	if (*fn).Type() != "function" {
-		return nil, errors.New("Given variable is not a function")
+		var tmp types.TuskError
+		tmp.Err = fmt.Sprintf("Could not find variable %s", fname)
+		return nil, &tmp
 	}
 
 	var argv types.TuskArray
@@ -29,5 +32,5 @@ func CallOatFunc(instance *types.Instance, fname string, args ...*types.TuskType
 		argv.PushBack(*v)
 	}
 
-	return interpreter.Operations["function <- array"](*fn, argv, instance, []string{"at goat caller "}, 0, "github.com/tusklang/goat", 0), nil
+	return interpreter.Operations["function <- array"](*fn, argv, instance, []string{"at goat caller "}, 0, "github.com/tusklang/goat", 0)
 }
