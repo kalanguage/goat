@@ -8,7 +8,7 @@ import (
 	"github.com/tusklang/tusk/lang/types"
 )
 
-//CallOatFunc calls a (global) functions in a given instance and returns the return value
+//CallOatFunc calls a (global) functions in a given instance and returns the return value, and the error
 func CallOatFunc(instance *types.Instance, fname string, args ...*types.TuskType) (*types.TuskType, *types.TuskError) {
 	fnvar := instance.Fetch(fname)
 
@@ -32,7 +32,7 @@ func CallOatFunc(instance *types.Instance, fname string, args ...*types.TuskType
 		argv.PushBack(*v)
 	}
 
-	a, b, _ := interpreter.Operations["function <- array"](*fn, argv, instance, []string{"at goat caller "}, 0, "github.com/tusklang/goat", 0, "global")
+	a, b, _ := interpreter.Operations["function : array"](*fn, argv, instance, []string{"at goat caller "}, 0, "goatbind", 0, "global")
 
 	return a, b
 }
