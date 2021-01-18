@@ -32,5 +32,7 @@ func CallOatFunc(instance *types.Instance, fname string, args ...*types.TuskType
 		argv.PushBack(*v)
 	}
 
-	return interpreter.Operations["function <- array"](*fn, argv, instance, []string{"at goat caller "}, 0, "github.com/tusklang/goat", 0)
+	a, b, _ := interpreter.Operations["function <- array"](*fn, argv, instance, []string{"at goat caller "}, 0, "github.com/tusklang/goat", 0, "global")
+
+	return a, b
 }
